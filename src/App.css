@@ -1,0 +1,225 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Pastel Blue-Pink Color System */
+  --primary-blue: #a8d8ea;
+  --primary-blue-dark: #7cb9d4;
+  --primary-pink: #ffb6d9;
+  --primary-pink-dark: #ff9ec7;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #a8d8ea 0%, #ffb6d9 100%);
+  --gradient-soft: linear-gradient(135deg, #e3f2fd 0%, #fce4ec 100%);
+  --gradient-reverse: linear-gradient(135deg, #ffb6d9 0%, #a8d8ea 100%);
+
+  /* Neutral Colors */
+  --white: #ffffff;
+  --bg-primary: #f8fbff;
+  --bg-secondary: #ffffff;
+  --bg-card: #fefeff;
+
+  /* Text Colors */
+  --text-dark: #2d3748;
+  --text-medium: #6b7280;
+  --text-light: #9ca3af;
+
+  /* Status Colors */
+  --status-new: #a8d8ea;
+  --status-pending: #ffd4a3;
+  --status-resolved: #b8e6d5;
+
+  /* Priority Colors */
+  --priority-high: #ffb6d9;
+  --priority-medium: #d4b5ff;
+  --priority-low: #a8d8ea;
+
+  /* Borders & Shadows */
+  --border-color: #e8f4f8;
+  --border-pink: #ffe4f0;
+  --shadow-sm: 0 2px 4px rgba(168, 216, 234, 0.1);
+  --shadow-md: 0 4px 8px rgba(168, 216, 234, 0.15);
+  --shadow-lg: 0 8px 16px rgba(168, 216, 234, 0.2);
+  --shadow-pink: 0 4px 12px rgba(255, 182, 217, 0.25);
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--gradient-soft);
+  background-attachment: fixed;
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Smooth animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-reverse);
+}
+
+/* FontAwesome Icon Colors - Global Styling */
+
+/* Icons in gradient headers - white */
+.customer-header .customer-icon svg,
+.track-header .track-icon svg,
+.login-header .login-icon svg {
+  color: white;
+}
+
+/* Dashboard navbar icon */
+.nav-icon svg {
+  color: var(--primary-blue);
+}
+
+/* Stats card icons - match their card type */
+.stat-card svg {
+  color: var(--primary-blue-dark);
+}
+
+.stat-card.new svg {
+  color: var(--status-new);
+}
+
+.stat-card.pending svg {
+  color: var(--status-pending);
+}
+
+.stat-card.resolved svg {
+  color: var(--status-resolved);
+}
+
+/* Home page action icons */
+.action-card:nth-child(1) .action-icon svg {
+  color: var(--primary-pink);
+}
+
+.action-card:nth-child(2) .action-icon svg {
+  color: var(--primary-blue);
+}
+
+.home-icon svg {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Success/check icons */
+.success-icon svg {
+  color: var(--status-resolved);
+}
+
+/* Conversation icons */
+.conversation-title svg,
+.section-title svg {
+  color: var(--primary-blue);
+}
+
+/* Agent icons - blue */
+.reply-item.agent svg,
+.conversation-item.agent svg {
+  color: var(--primary-blue);
+}
+
+/* Customer icons - pink */
+.reply-item.customer svg,
+.conversation-item.customer svg {
+  color: var(--primary-pink);
+}
+
+/* Default icon color */
+svg {
+  transition: color 0.3s;
+}
